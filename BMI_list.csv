@@ -1,0 +1,9 @@
+﻿bmi_id,min,max,bmi
+0,,16,Severe Thinness
+1,16,17,Moderate Thinness
+2,17,18.5,Mild Thinness
+3,18.5,25,Normal
+4,25,30,Overweight
+5,30,35,Obese Class I
+6,35,30,Obese Class II
+7,40,,Obese Class III
