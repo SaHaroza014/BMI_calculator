@@ -1,10 +1,8 @@
 import tkinter
 import pandas
 
-# by using pandas import BMI_list.csv and run through bmi_id or min/max for output of bmi in .cvs
 file = pandas.read_csv('BMI_list.csv')
-df = file.DataFrame()
-print(df)
+new_dict = file.bmi.to_dict()
 
 calculator = tkinter.Tk()
 calculator.title('Body Mass Index calculator')
@@ -58,21 +56,21 @@ def calculate():
     height *= height
     final_m_h = mass / height
     if final_m_h < 16:
-        comment_bmi.config(text='Severe Thinness', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[0], font=("Calibre", 14, 'bold'))
     elif 16 <= final_m_h <= 17:
-        comment_bmi.config(text='Moderate Thinness', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[1], font=("Calibre", 14, 'bold'))
     elif 17 < final_m_h <= 18.5:
-        comment_bmi.config(text='Mild Thinness', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[2], font=("Calibre", 14, 'bold'))
     elif 18.5 < final_m_h <= 25:
-        comment_bmi.config(text='Normal', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[3], font=("Calibre", 14, 'bold'))
     elif 25 < final_m_h <= 30:
-        comment_bmi.config(text='Overweight', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[4], font=("Calibre", 14, 'bold'))
     elif 30 < final_m_h <= 35:
-        comment_bmi.config(text='Obese Class I', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[5], font=("Calibre", 14, 'bold'))
     elif 35 < final_m_h <= 40:
-        comment_bmi.config(text='Obese Class II', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[6], font=("Calibre", 14, 'bold'))
     else:
-        comment_bmi.config(text='Obese Class III', font=("Calibre", 14, 'bold'))
+        comment_bmi.config(text=new_dict[7], font=("Calibre", 14, 'bold'))
 
     bmi.config(text=round(final_m_h, 1))
 
